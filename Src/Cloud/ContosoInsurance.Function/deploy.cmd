@@ -54,6 +54,11 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Deployment
 :: ----------
 
+:: Delete existing functions
+FOR /d %%x in (%DEPLOYMENT_TARGET%\*) DO(
+  @rd /s /q ^"%%x^"
+)
+
 :: NuGet package restore
 echo "Restoring function packages"
 
