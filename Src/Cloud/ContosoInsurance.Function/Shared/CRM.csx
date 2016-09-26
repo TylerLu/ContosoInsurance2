@@ -19,6 +19,7 @@ public static class CRM
 
     public class ClaimsDbContext : DbContext
     {
+        private const string schema = "CRM";
         private const string connectionStringName = "Name=CRMClaims";
 
         public ClaimsDbContext() : base(connectionStringName) { }

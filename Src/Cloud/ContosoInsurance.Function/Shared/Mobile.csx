@@ -9,6 +9,7 @@ public static class Mobile
 {
     public class ClaimsDbContext : DbContext
     {
+        private const string schema = "Mobile";
         private const string connectionStringName = "Name=MobileClaims";
 
         public ClaimsDbContext() : base(connectionStringName) { }
