@@ -55,7 +55,8 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: ----------
 
 :: Delete existing functions
-FOR /d %%x in (%DEPLOYMENT_TARGET%\*) DO(
+:: Delete existing functions
+FOR /D %%x in (%DEPLOYMENT_TARGET%\*) DO (
   @rd /s /q ^"%%x^"
 )
 
