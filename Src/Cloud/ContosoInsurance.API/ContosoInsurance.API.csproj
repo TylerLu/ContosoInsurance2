@@ -44,12 +44,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    <Reference Include="AutoMapper, Version=5.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.1.1\lib\net45\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -218,6 +214,8 @@
     <Compile Include="Helpers\CustomBodyModelValidator.cs" />
     <Compile Include="Helpers\DefaultStorageProvider.cs" />
     <Compile Include="Helpers\DefaultContainerNameResolver.cs" />
+    <Compile Include="Helpers\SeedDataHelper.cs" />
+    <Compile Include="Helpers\AutoSeedDataAttribute.cs" />
     <Compile Include="Models\ApproveResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -247,6 +245,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="deploy.cmd" />
+    <Content Include="DemoData\vehicle-demo1.png" />
+    <Content Include="DemoData\vehicle-demo2.png" />
     <None Include="Properties\PublishProfiles\contosoinsurance-api - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\contosoinsurance-api - Web Deploy.pubxml" />
   </ItemGroup>
@@ -278,5 +278,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
 </Project>
