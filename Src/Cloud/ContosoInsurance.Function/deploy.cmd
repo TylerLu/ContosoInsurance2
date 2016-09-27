@@ -69,7 +69,6 @@ IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
-
 :: Force compile all the functions
 FOR /D %%x in ("%DEPLOYMENT_SOURCE%\*") DO (
   COPY "%%x\run.csx" "%DEPLOYMENT_TARGET%\%%~nx\run.csx"
