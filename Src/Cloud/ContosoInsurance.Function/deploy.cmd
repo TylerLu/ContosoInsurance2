@@ -54,12 +54,6 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Deployment
 :: ----------
 
-:: Delete existing functions
-:: Delete existing functions
-FOR /D %%x in (%DEPLOYMENT_TARGET%\*) DO (
-  @rd /s /q ^"%%x^"
-)
-
 :: NuGet package restore
 echo "Restoring function packages"
 
@@ -73,6 +67,12 @@ echo Handling Basic Web Site deployment.
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
   call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd;Project.json"
   IF !ERRORLEVEL! NEQ 0 goto error
+)
+
+
+:: Force compile all the functions
+FOR /D %%x in ("%DEPLOYMENT_SOURCE%\*") DO (
+  COPY "%%x\run.csx" "%DEPLOYMENT_TARGET%\%%~nx\run.csx"
 )
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
