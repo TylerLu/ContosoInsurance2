@@ -114,10 +114,7 @@ var claimDetailFn = function () {
             self.Request('approve', 'post', requestData, function (data) {
                 var msg = 'The Claim is ' + (approved ? 'approved' : 'rejected') + '.';
                 modal.find('.modal-body').text(msg);
-                model.find('.modal-footer').show();
-                location.reload();
-                //alert(msg);
-                //location.href = location.href + "?t=" + new Date().getTime();
+                modal.find('.modal-footer').show();
             });
         };
         detail.showDetail = function (item) {
