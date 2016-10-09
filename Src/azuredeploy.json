@@ -218,7 +218,7 @@
             "MS_VisionServiceSubscriptionKey": "[parameters('visionServiceSubscriptionKey')]",
             "MS_ApplicationInsightsInstrumentationKey": "[reference(concat('microsoft.insights/components/', variables('applicationInsightsName'))).InstrumentationKey]",
             "FUNCTIONS_EXTENSION_VERSION": "latest",
-            "project": "src\\Cloud\\ContosoInsurance.Function"
+            "command": "src\\Cloud\\ContosoInsurance.Function\\deploy.cmd"
           }
         },
         {
