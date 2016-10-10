@@ -285,6 +285,7 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 1.	Enter a **latitude** and **longitude**.
 2.	Click **OK**.
 
+
 ## How To: Install the web application for local execution and debugging ##
  
 1. Use Visual Studio 2015 to open the **src/Cloud/ContosoInsurance-Cloud.sln** Visual Studio Solution file.
