@@ -351,12 +351,15 @@ As you can see below, this claim took 22 seconds to process.
 After a period of time, there would be lots of claims in the system. You can wipe them by the following steps:
 
 1. Open the Web App:
+
 	![](Images/Deployment/azure-web-app.png)
 
 1. Click the username at the top right of the page:
+
 	![](Images/Deployment/admin-user-info.png)
 
 1. Click **Wipe Claims**.	
+
 	![](Images/Deployment/admin-wipe-claims.png)
 
 ## Contributors
