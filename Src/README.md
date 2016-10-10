@@ -285,6 +285,15 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 1.	Enter a **latitude** and **longitude**.
 2.	Click **OK**.
 
+## Wipe All Claims ##
+
+After a period of time, there would be lots claims in the system. You can wipe them by the following steps:
+
+1. Open the admin panel: https://contosoinsuranceXXXXXX.azurewebsites.net/admin
+
+	![](Images/Deployment/admin-wipe-cliams.png)
+
+2. Click **Wipe Claims**.
 
 ## How To: Install the web application for local execution and debugging ##
  
