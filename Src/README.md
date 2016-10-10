@@ -285,16 +285,6 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 1.	Enter a **latitude** and **longitude**.
 2.	Click **OK**.
 
-## Wipe All Claims ##
-
-After a period of time, there would be lots claims in the system. You can wipe them by the following steps:
-
-1. Open the admin panel: https://contosoinsuranceXXXXXX.azurewebsites.net/admin
-
-	![](Images/Deployment/admin-wipe-cliams.png)
-
-2. Click **Wipe Claims**.
-
 ## How To: Install the web application for local execution and debugging ##
  
 1. Use Visual Studio 2015 to open the **src/Cloud/ContosoInsurance-Cloud.sln** Visual Studio Solution file.
@@ -355,6 +345,19 @@ customEvents
 As you can see below, this claim took 22 seconds to process.
 
 ![](Images/Deployment/Application-Insights-Analytics.png)
+
+## How To: Wipe all claims ##
+
+After a period of time, there would be lots claims in the system. You can wipe them by the following steps:
+
+1. Open the Web App:
+	![](azure-web-app.png)
+
+1. Click the username at the top right of the page:
+	![](Images/Deployment/admin-user-info.png)
+
+1. Click **Wipe Claims**.	
+	![](Images/Deployment/admin-wipe-claims.png)
 
 ## Contributors
 Roles|Author(s)
