@@ -54,18 +54,11 @@ IF NOT DEFINED KUDU_SYNC_CMD (
 :: Deployment
 :: ----------
 
-:: NuGet package restore
-echo "Restoring function packages"
-
-FOR /F %%d in ('DIR "Project.json" /S /B') DO ( 
-  call nuget restore %%d -PackagesDirectory %home%\data\Functions\packages\nuget
-)
-
 echo Handling Basic Web Site deployment.
 
 :: KuduSync
 IF /I "%IN_PLACE_DEPLOYMENT%" NEQ "1" (
-  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd;Project.json"
+  call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_SOURCE%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd;"
   IF !ERRORLEVEL! NEQ 0 goto error
 )
 
