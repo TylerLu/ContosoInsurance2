@@ -1,8 +1,12 @@
 #r "Newtonsoft.Json"
 
 #load "..\Shared\ApplicationInsights.csx"
+#load "..\Shared\Settings.csx"
+#load "TemplateNotification.csx"
 
 using Microsoft.ApplicationInsights;
+using Microsoft.Azure.NotificationHubs;
+using System.Net;
 
 private static readonly string FunctionName = "PushNotification";
 
@@ -18,7 +22,7 @@ public static async Task<HttpResponseMessage> Run(TemplateNotification notificat
     }
     catch (Exception ex)
     {
-        telemetryClient.TrackException(FunctionName, newClaim.CorrelationId, ex);
+        telemetryClient.TrackException(FunctionName, notification.CorrelationId, ex);
         return new HttpResponseMessage(HttpStatusCode.InternalServerError)
         {
             Content = new StringContent(ex.Message)

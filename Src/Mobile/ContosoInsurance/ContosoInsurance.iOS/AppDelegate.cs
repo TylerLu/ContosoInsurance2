@@ -5,6 +5,7 @@ using System;
 using System.Threading.Tasks;
 using UIKit;
 using ContosoInsurance.Helpers;
+using HockeyApp.iOS;
 
 namespace ContosoInsurance.iOS
 {
@@ -56,6 +57,13 @@ namespace ContosoInsurance.iOS
             var formsApp = new ContosoInsurance.App();
             LoadApplication(formsApp);
 
+            var manager = BITHockeyManager.SharedHockeyManager;
+            manager.Configure("173bb49bbecf4b61873990c2aed13abf");
+            manager.DisableMetricsManager = true;
+            manager.StartManager();
+            manager.Authenticator.AuthenticateInstallation(); // This line is obsolete in crash only builds
+
+       
             return base.FinishedLaunching(app, options);
         }
 

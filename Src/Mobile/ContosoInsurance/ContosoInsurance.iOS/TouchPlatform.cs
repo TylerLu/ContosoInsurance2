@@ -16,6 +16,9 @@ using Xamarin.Auth;
 using System.Linq;
 using ContosoInsurance.Helpers;
 using Xamarin.Geolocation;
+using System.Collections.Generic;
+using System.Reflection;
+using HockeyApp;
 
 [assembly: Xamarin.Forms.Dependency(typeof(ContosoInsurance.iOS.TouchPlatform))]
 namespace ContosoInsurance.iOS
@@ -98,6 +101,16 @@ namespace ContosoInsurance.iOS
             var locator = new Geolocator { DesiredAccuracy = 50 };
             Position position = await locator.GetPositionAsync(timeout: 10000);
             return position;
+        }
+        public void TraceException(string descrption)
+        {
+            Dictionary<string, string> properties = new Dictionary<string, string>()
+            {
+                { "LogType", "Exception"},
+                { "Version", Assembly.GetCallingAssembly().GetName().Version.ToString()},
+                { "Description", descrption}
+            };
+           // MetricsManager.TrackEvent("Exception", properties, null);
         }
     }
 }

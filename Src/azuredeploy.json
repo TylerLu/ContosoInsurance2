@@ -217,6 +217,8 @@
             "Contoso_ClaimDetailsPageBaseUrl": "[variables('claimDetailsPageBaseUrl')]",
             "MS_VisionServiceSubscriptionKey": "[parameters('visionServiceSubscriptionKey')]",
             "MS_ApplicationInsightsInstrumentationKey": "[reference(concat('microsoft.insights/components/', variables('applicationInsightsName'))).InstrumentationKey]",
+            "MS_NotificationHubName": null,
+            "MS_NotificationHubConnectionString": null,
             "FUNCTIONS_EXTENSION_VERSION": "latest",
             "command": "src\\Cloud\\ContosoInsurance.Function\\deploy.cmd"
           }

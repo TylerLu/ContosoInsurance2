@@ -30,8 +30,11 @@ namespace ContosoInsurance.Views
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Failure to log in - " + ex.Message);
-                Trace.WriteLine("Failure to log in - " + ex);
+                var platform = DependencyService.Get<IPlatform>();
+                platform.TraceException("Failure to log in - " + ex.Message);
+                //HockeyHelper.TraceException("Exception", "Failure to log in - " + ex.Message);
+                //Debug.WriteLine("Failure to log in - " + ex.Message);
+                //Trace.WriteLine("Failure to log in - " + ex);
                 await MobileServiceHelper.msInstance.ClearCachAsync();
                 await DisplayAlert("Error", "Login Failure. " + ex.Message, "Close");
             }

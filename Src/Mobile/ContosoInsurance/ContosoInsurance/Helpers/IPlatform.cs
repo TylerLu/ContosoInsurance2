@@ -27,5 +27,7 @@ namespace ContosoInsurance
         void ClearCache();
   
         Task<Position> GetGeolocator(object context);
+
+        void TraceException(string descrption);
     }
 }
