@@ -240,7 +240,7 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
 2. Configure **Google (GCM)**.
 
-   For this step, you need [Google account](http://go.microsoft.com/fwlink/p/?LinkId=268302) with a verified email address.
+   For this step, you need [Google account](https://accounts.google.com/SignUp) with a verified email address.
 
    * Log in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project if you don't already have one.
 
