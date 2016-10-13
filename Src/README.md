@@ -228,6 +228,7 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    ![](Images/Deployment/authenticate-office365-api-connection-04.png)
 
+**Configure Notification Hub **
 
 1. Open the Notification Hub.
 
