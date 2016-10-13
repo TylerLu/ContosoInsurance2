@@ -228,7 +228,7 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    ![](Images/Deployment/authenticate-office365-api-connection-04.png)
 
-**Configure Notification Hub **
+**Configure Notification Hub**
 
 1. Open the Notification Hub.
 
@@ -348,20 +348,20 @@ To view the custom events and metrics in Application Insights follow these steps
 
 1.  Open https://portal.azure.com in a web browser and log in.
 2.  Click the Application Insights link in the left menu.
-      1.Click the contosoinsurance Application Insights application that was created when you deployed all the components.
-      1.Click Search.
+       1.Click the contosoinsurance Application Insights application that was created when you deployed all the components.
+       1.Click Search.
 
-      ![](Images/Deployment/App-Insights-Search.png)
+       ![](Images/Deployment/App-Insights-Search.png)
 
-      1.Observe all of the Custom Events.
+       1.Observe all of the Custom Events.
 
-      ![](Images/Deployment/App-Insights-Search-Results.png)
+       ![](Images/Deployment/App-Insights-Search-Results.png)
 
-      1.Click a Custom Event in the list to see the metrics logged for the event.
+       1.Click a Custom Event in the list to see the metrics logged for the event.
 
-      >**Note:**  You can refer to the Application Insights Logging Matrix in the [Azure Components document](/Azure Components.docx) to see all of the Custom Metrics logged for each Custom Event.  In the example below you can see this custom event was written by the HandleNewClaim Azure Function when it invoked the ClaimAutoApprover Azure Function.
+       >**Note:**  You can refer to the Application Insights Logging Matrix in the [Azure Components document](/Azure Components.docx) to see all of the Custom Metrics logged for each Custom Event.  In the example below you can see this custom event was written by the HandleNewClaim Azure Function when it invoked the ClaimAutoApprover Azure Function.
 
-      ![](Images/Deployment/App-Insights-Custom-Event.png)
+       ![](Images/Deployment/App-Insights-Custom-Event.png)
 
 **Track an individual claim**
 
@@ -370,13 +370,13 @@ Each claim has a CorrelationId associated with it.  You can see this in the scre
 1.  Copy the CorrelationId from a Custom Event.
 2.  Click **Search**.
 
-      ![](Images/Deployment/App-Insights-Search.png)
+       ![](Images/Deployment/App-Insights-Search.png)
 
-      2.Paste the CorrelationId into the **Search textbox** and observe all the Custom Events associated with the CorrelationId.
+       2.Paste the CorrelationId into the **Search textbox** and observe all the Custom Events associated with the CorrelationId.
 
-      >**Note:**  This is an excellent way to debug errors in the system and is also especially helpful to determine how long a given step takes to execute.  This sample typically processes claims from the point where they are submitted in the mobile app to the point where they are ready for manual approval in 15 seconds when running the sample on the most basic App Services service level!
+       >**Note:**  This is an excellent way to debug errors in the system and is also especially helpful to determine how long a given step takes to execute.  This sample typically processes claims from the point where they are submitted in the mobile app to the point where they are ready for manual approval in 15 seconds when running the sample on the most basic App Services service level!
 
-      ![](Images/Deployment/App-Insights-Search-Results-CorrelationId.png) 
+       ![](Images/Deployment/App-Insights-Search-Results-CorrelationId.png) 
 
 **Track an individual claim with Application Insights Analytics**
 
