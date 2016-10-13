@@ -246,7 +246,7 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    * After your project is created click **Add Firebase to your Android app** and follow the instructions provided.
 
-     ![](Images/Deployment/firebase-app-overview.png)Click the cog, then click Project Settings.
+     ![](Images/Deployment/firebase-app-overview.png)Click the **cog**, then click **Project Settings**.
 
      ![](Images/Deployment/firebase-app-web-api-key.png)
 
@@ -260,11 +260,11 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html), so for this step, you need a physical iOS device and an [Apple Developer Program membership](https://developer.apple.com/programs/ios/).
 
-   - [Register an App ID for your app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Create an explicit App ID (not a wildcard App ID) and for Bundle ID, use the exact Bundle ID that is in your Xcode quickstart project. It is also crucial that you check the Push Notifications option.
+   - [Register an App ID for your app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Create an explicit App ID (not a wildcard App ID) and for Bundle ID, use the exact Bundle ID that is in your iOS project. It is also crucial that you check the Push Notifications option.
 
-   - Next, [configuring push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6). You may create either a "Development" or "Distribution" SSL certificate (remember to select the corresponding option in the Azure portal later.)
+   - Next, [configuring push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6). You may create either a "Development" or "Distribution" SSL certificate.
 
-   - On your Mac, launch Keychain Access. Open Category > My Certificates. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
+   - On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
 
    - Click **Upload Certificate**. Upload the .p12 push certificate file you exported earlier. 
 
