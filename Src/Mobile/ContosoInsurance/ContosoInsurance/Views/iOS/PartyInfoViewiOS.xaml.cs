@@ -70,8 +70,7 @@ namespace ContosoInsurance.Views
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Image upload failed." + ex.Message);
-                Trace.WriteLine("Image upload failed - " + ex);
+                Utils.TraceException("Image upload failed. ", ex);
                 await DisplayAlert("Image upload failed", "Image upload failed. Please try again later", "Ok");
             }
         }

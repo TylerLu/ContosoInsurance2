@@ -22,12 +22,8 @@ namespace ContosoInsurance
 
         Task<MobileServiceUser> LoginAsync(MobileServiceAuthenticationProvider provider);
 
-        AccountStore GetAccountStore();
-
         void ClearCache();
   
         Task<Position> GetGeolocator(object context);
-
-        void TraceException(string descrption);
     }
 }

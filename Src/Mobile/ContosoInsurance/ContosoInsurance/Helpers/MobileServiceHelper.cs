@@ -108,8 +108,7 @@ namespace ContosoInsurance.Helpers
             var platform = DependencyService.Get<IPlatform>();
             var user = await platform.LoginAsync(MobileServiceAuthenticationProvider.MicrosoftAccount);
             msInstance.AuthenticatedUser = user;
-            Debug.WriteLine("Authenticated with user: " + user.UserId);
-            Trace.WriteLine("Authenticated with user: " + user.UserId);
+            Utils.TraceStatus("Authenticated with user: " + user.UserId);
             await InitLocalStoreAsync(user.UserId);
         }
 

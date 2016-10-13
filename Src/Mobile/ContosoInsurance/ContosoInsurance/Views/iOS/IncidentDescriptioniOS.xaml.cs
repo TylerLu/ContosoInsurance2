@@ -65,8 +65,7 @@ namespace ContosoInsurance.Views
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("Failed to submit claim - " + ex.Message);
-                Trace.WriteLine("Failed to submit claim - " + ex);
+                Utils.TraceException("Failed to submit claim. ", ex);
                 await DisplayAlert("Error", ex.Message, "Close");
             }
         }

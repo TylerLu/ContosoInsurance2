@@ -4,6 +4,8 @@ using Android.OS;
 using Android.Views;
 using System;
 using Android.Content;
+using HockeyApp.Android;
+using HockeyApp.Android.Metrics;
 
 namespace ContosoInsurance.Droid
 {
@@ -11,6 +13,7 @@ namespace ContosoInsurance.Droid
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsApplicationActivity
     {
         public static MainActivity instance;
+        public const string HOCKEYAPP_APPID = "8e7c354ae6d34dc7bacfc5033f4a88d1";
 
         protected override void OnCreate (Bundle bundle)
         {
@@ -26,6 +29,15 @@ namespace ContosoInsurance.Droid
             LoadApplication(new ContosoInsurance.App());
 
             instance = this;
+
+            // Register the crash manager before Initializing the trace writer
+            CrashManager.Register(this, HOCKEYAPP_APPID);
+
+            //Register to with the Update Manager
+            UpdateManager.Register(this, HOCKEYAPP_APPID);
+
+            MetricsManager.Register(Application, HOCKEYAPP_APPID);
+            MetricsManager.EnableUserMetrics();
 
 #if PUSH // need to use a Google image on an Android emulator
             try {

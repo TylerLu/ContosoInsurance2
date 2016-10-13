@@ -17,6 +17,7 @@ namespace ContosoInsurance.iOS
     {
         public static NSData DeviceToken { get; private set; }
         public static bool IsAfterLogin = false;
+        const string HOCKEYAPP_APPID = "173bb49bbecf4b61873990c2aed13abf";
 
         //
         // This method is invoked when the application has loaded and is ready to run. In this 
@@ -38,6 +39,8 @@ namespace ContosoInsurance.iOS
 
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
             SQLitePCL.CurrentPlatform.Init();
+            //http://motzcod.es/post/150988588867/updating-azure-mobile-sqlitestore-to-30
+            SQLitePCL.Batteries.Init();
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0)) {
                 var settings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Sound |
@@ -58,8 +61,7 @@ namespace ContosoInsurance.iOS
             LoadApplication(formsApp);
 
             var manager = BITHockeyManager.SharedHockeyManager;
-            manager.Configure("173bb49bbecf4b61873990c2aed13abf");
-            manager.DisableMetricsManager = true;
+            manager.Configure(HOCKEYAPP_APPID);
             manager.StartManager();
             manager.Authenticator.AuthenticateInstallation(); // This line is obsolete in crash only builds
 
