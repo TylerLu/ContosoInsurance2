@@ -332,6 +332,142 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
     1.Enter a **latitude** and **longitude**.
     2.Click **OK**.
 
+## How To: Integrate Hockey App with the Xamarin App for deployment and logging ##
+
+### Integrate Hockey App with the Xamarin App to iOS ###
+1. Open [Hockeyapp](https://www.hockeyapp.net/ "Hockeyapp") site, if you have not Hockey App developer account, please sign up.
+
+    ![](Images/Deployment/HockeyApp-SignUp.png)
+
+2. Log in Hockey App using the developer user that you register above, go to [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
+
+3. Click **New App** button.
+
+    ![](Images/Deployment/HockeyApp-NewApp.png)
+
+4. Click Create the App **Manually** instead.
+
+    ![](Images/Deployment/HockeyApp-ManuallyCreate.png)
+ 
+5. Type your App information and click **Save** button.
+
+	![](Images/Deployment/HockeyApp-CreatDetail.png)
+
+6. Copy **App Id** to use later.
+	![](Images/Deployment/HockeyApp-CopyAppId.png)
+
+7. Use VS to open **ContosoInsurance-Mobile.sln**, select **ContosoInsurance.iOS** project, paste the **iOS App Id** that you get it above and save file.
+
+	![](Images/Deployment/HockeyApp-PastAppId.png)
+
+8. Build IOS project, and Upload your iOS **.ipa** file to iOS Hockey App that you create above.
+> **Note:** Be sure that tester's iOS UDID has been included in your Apple provision file before build.
+
+	 ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
+
+9. Enter the release notes for this build. 
+
+    ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
+
+10. Configure **Status** as following.
+
+	 ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
+
+11. Configure **Notify** as following, click **Send** button.
+
+    ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
+
+12. Upload file and configure App status successfully.
+
+	 ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfully.png)
+
+13. Click **Invite User** button to invite test user to test this App.
+
+	 ![](Images/Deployment/HockeyApp-InviteUser.png)
+
+14. Type tester email and click **Save**.
+
+	 ![](Images/Deployment/HockeyApp-InviteUserTest.png)
+
+### Integrate Hockey App with the Xamarin App to Android ###
+1. Log in Hockey App using the developer user that you register above, go to [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
+2. Click **New App** button.
+
+    ![](Images/Deployment/HockeyApp-NewApp.png)
+
+3. Click Create the App **Manually** instead.
+
+    ![](Images/Deployment/HockeyApp-ManuallyCreate.png)
+ 
+4. Type your App information and click **Save** button.
+
+	![](Images/Deployment/HockeyApp-CreatDetailAndroid.png)
+
+5. Copy **App Id** to use later.
+
+	![](Images/Deployment/HockeyApp-CopyAppIdAndroid.png)
+
+6. Use VS to open **ContosoInsurance-Mobile.sln**, select **ContosoInsurance.Droid** project, paste the **Android App Id** that you get it above and save file.
+
+	![](Images/Deployment/HockeyApp-PastAppIdAndroid.png)
+
+7. Build Android project, and Upload your Android **.apk** file to Android Hockey App that you create above.
+
+    ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
+
+8. Enter the release notes for this build. 
+
+    ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
+
+9. Configure **Status** as following.
+
+	 ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
+
+10. Configure **Notify** as following, click **Send** button.
+
+    ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
+
+11. Upload file and configure App status successfully.
+
+	 ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfullyAndroid.png)
+
+13. Click **Invite User** button to invite user to test this App.
+
+	 ![](Images/Deployment/HockeyApp-InviteUser.png)
+
+14. Type tester email and click **Save**.
+
+	 ![](Images/Deployment/HockeyApp-InviteUserTest.png)
+
+### Download Android Hockey App to device and test###
+1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the tester user that invite above.
+2. Open **ContosoInsurance.Droid** Hockey App, and Click **Download**.
+
+    ![](Images/Deployment/HockeyApp-DownloadOS.png)
+
+3. Copy it to your Android device, and **install** it.
+4. Test.
+
+### Download iOS Hockey App to device and test###
+1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the tester user that invite above.
+2. Open **ContosoInsurance.iOS** Hockey App, and Click **Download**.
+
+    ![](Images/Deployment/HockeyApp-DownloadAndroid.png)
+
+3. **Install** it using iTunes.
+> **Note:** Be sure that your device UDID has been included in your Apple provision file.
+
+4. Test.
+
+### Explore Hockey App Crashes/Events ###
+1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the developer user that create above.
+2. Open Hockey App, click Crashes/Events tab to find log.
+
+    ![](Images/Deployment/HockeyApp-events.png)
+
+3. You can explore HockeyApp data in Application Insights, please reference this [link](https://azure.microsoft.com/en-us/documentation/articles/app-insights-hockeyapp-bridge-app/ "Exploring HockeyApp data in Application Insights") to configure Hockey App Bridge Application Insight.
+
+    ![](Images/Deployment/HockeyApp-Insight.png)
 
 ## How To: Install the web application for local execution and debugging ##
 

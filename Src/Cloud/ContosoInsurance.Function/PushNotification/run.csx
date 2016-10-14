@@ -16,7 +16,7 @@ public static async Task Run(TemplateNotification notification, TraceWriter log)
     {
         var hub = NotificationHubClient.CreateClientFromConnectionString(Settings.NotificationHubConnection, Settings.NotificationHubName);
         await hub.SendTemplateNotificationAsync(notification.Properties, notification.TagExpression);
-        telemetryClient.TrackStatus(FunctionName, notification.CorrelationId, "Notification sent to Notification Hubs");
+        telemetryClient.TrackStatus(FunctionName, notification.CorrelationId, "Notification sent to Notification Hub");
     }
     catch (Exception ex)
     {
