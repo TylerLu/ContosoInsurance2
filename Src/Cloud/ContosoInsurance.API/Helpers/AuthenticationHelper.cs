@@ -11,9 +11,10 @@ namespace ContosoInsurance.API.Helpers
     {
         internal static async Task<string> GetUserIdAsync(HttpRequestMessage request, IPrincipal user)
         {
-            var creds = await GetCurrentCredentialAsync(request, user);
-            if (creds == null) return null;
-            return $"{creds.Provider}:{creds.Claims.GetValue(ClaimTypes.NameIdentifier)}";
+            var principal = user as ClaimsPrincipal;
+            var provider = principal.FindFirst("http://schemas.microsoft.com/identity/claims/identityprovider").Value;
+            var sid = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
+            return $"{provider}:{sid}";
         }
 
         internal static async Task<ProviderCredentials> GetCurrentCredentialAsync(HttpRequestMessage request, IPrincipal user)
