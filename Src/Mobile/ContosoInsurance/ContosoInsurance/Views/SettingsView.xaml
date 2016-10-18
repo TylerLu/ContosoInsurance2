@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:CustomerView="clr-namespace:ContosoInsurance.Views"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ContosoInsurance.Views.SettingsViewiOS">
+             x:Class="ContosoInsurance.Views.SettingsView">
   <ContentPage.ToolbarItems>
     <ToolbarItem Name="Save" Order="Default" Priority="0" Clicked="SaveClicked" />
     <ToolbarItem Icon="navmenu.png" Order="Default" Priority="0" Clicked="MenuClicked" />

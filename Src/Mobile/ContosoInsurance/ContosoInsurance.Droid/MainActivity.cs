@@ -6,6 +6,7 @@ using System;
 using Android.Content;
 using HockeyApp.Android;
 using HockeyApp.Android.Metrics;
+using Gcm.Client;
 
 namespace ContosoInsurance.Droid
 {
@@ -39,8 +40,8 @@ namespace ContosoInsurance.Droid
             MetricsManager.Register(Application, HOCKEYAPP_APPID);
             MetricsManager.EnableUserMetrics();
 
-#if PUSH // need to use a Google image on an Android emulator
-            try {
+            try
+            {
                 // Check to ensure everything's setup right
                 GcmClient.CheckDevice(this);
                 GcmClient.CheckManifest(this);
@@ -49,14 +50,15 @@ namespace ContosoInsurance.Droid
                 System.Diagnostics.Debug.WriteLine("Registering...");
                 GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
             }
-            catch (Java.Net.MalformedURLException) {
+            catch (Java.Net.MalformedURLException)
+            {
+                CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
+            }
+            catch (Exception e)
+            {
+                CreateAndShowDialog(e.Message, "Error");
+            }
 
-                CreateAndShowDialog(new Exception("There was an error creating the Mobile Service. Verify the URL"), "Error");
-            }
-            catch (Exception e) {
-                CreateAndShowDialog(e, "Error");
-            }
-#endif 
         }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -69,20 +71,13 @@ namespace ContosoInsurance.Droid
             get { return instance; }
         }
 
-        private void CreateAndShowDialog(Exception e, string title)
+        private void CreateAndShowDialog(String message, String title)
         {
-            //set alert for executing the task
-            AlertDialog.Builder alert = new AlertDialog.Builder(this);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-            alert.SetTitle(title);
-            alert.SetMessage(e.Message);
-
-            alert.SetPositiveButton("OK", (senderAlert, args) => { });
-
-            //run the alert in UI thread to display in the screen
-            RunOnUiThread(() => {
-                alert.Show();
-            });
+            builder.SetMessage(message);
+            builder.SetTitle(title);
+            builder.Create().Show();
         }
     }
 }

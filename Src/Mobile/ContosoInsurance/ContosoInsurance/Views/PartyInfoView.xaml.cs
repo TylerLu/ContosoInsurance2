@@ -7,13 +7,13 @@ using ContosoInsurance.Helpers;
 
 namespace ContosoInsurance.Views
 {
-	public partial class PartyInfoViewiOS : ContentPage
+	public partial class PartyInfoView : ContentPage
     {
         private ClaimViewModel claimViewModel;
         private ClaimImageTypeModel type;
         private string fileName;
 
-        public PartyInfoViewiOS (ClaimViewModel cv, ClaimImageTypeModel cmType)
+        public PartyInfoView (ClaimViewModel cv, ClaimImageTypeModel cmType)
 		{
             Title = "Contoso Insurance";
             InitializeComponent ();
@@ -35,12 +35,12 @@ namespace ContosoInsurance.Views
         {
             var nextTapGestureRecognizer = new TapGestureRecognizer();
             nextTapGestureRecognizer.Tapped += NextButton_Clicked;
-            bottomView.NextImage.GestureRecognizers.Add(nextTapGestureRecognizer);
+            bottomView.NextButton.GestureRecognizers.Add(nextTapGestureRecognizer);
 
-            bottomView.PreviousImage.IsVisible = true;
+            bottomView.PreviousButton.IsVisible = true;
             var backTapGestureRecognizer = new TapGestureRecognizer();
             backTapGestureRecognizer.Tapped += PreviousButton_Clicked;
-            bottomView.PreviousImage.GestureRecognizers.Add(backTapGestureRecognizer);
+            bottomView.PreviousButton.GestureRecognizers.Add(backTapGestureRecognizer);
         }
 
         public async void CameraBtn_Tapped(object sender, EventArgs e)
@@ -91,14 +91,14 @@ namespace ContosoInsurance.Views
                 || type == ClaimImageTypeModel.InsuranceCard)
             {
 
-                var nextPage = new PartyInfoViewiOS(claimViewModel, type + 1);
+                var nextPage = new PartyInfoView(claimViewModel, type + 1);
 
                 await Navigation.PushAsync(nextPage, true);
                 NavigationPage.SetHasBackButton(nextPage, false);
             }
             else if (type == ClaimImageTypeModel.DriversLicense)
             {
-                var nextPage = new PartyContactViewiOS(claimViewModel);
+                var nextPage = new PartyContactView(claimViewModel);
 
                 await Navigation.PushAsync(nextPage, true);
                 NavigationPage.SetHasBackButton(nextPage, false);
@@ -120,7 +120,7 @@ namespace ContosoInsurance.Views
         public async void SettingsBtn_Tapped(object sender, EventArgs e)
         {
             this.menuList.IsVisible = false;
-            var settingsView = new SettingsViewiOS();
+            var settingsView = new SettingsView();
             NavigationPage.SetHasBackButton(settingsView, false);
             await Navigation.PushAsync(settingsView, false);
         }

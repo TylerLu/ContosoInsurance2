@@ -19,7 +19,7 @@ namespace ContosoInsurance.Helpers
         public static string QueryVehicleString = "allVehicle";
         public static string QueryClaimString = "allClaim";
 
-        private const string LocalDbFilename = "localDb.sqlite";
+        private const string LocalDbFilenamePrefix = "localDb.sqlite.";
         public MobileServiceClient Client;
         public MobileServiceUser AuthenticatedUser;
 
@@ -41,7 +41,7 @@ namespace ContosoInsurance.Helpers
         {
             if (!Client.SyncContext.IsInitialized)
             {
-                var store = new MobileServiceSQLiteStore(LocalDbFilename + userId);
+                var store = new MobileServiceSQLiteStore(LocalDbFilenamePrefix + userId.Replace(':', '.'));
                 store.DefineTable<Models.Vehicle>();
                 store.DefineTable<Models.Claim>();
 

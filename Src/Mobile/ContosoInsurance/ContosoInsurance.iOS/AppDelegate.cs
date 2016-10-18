@@ -38,9 +38,9 @@ namespace ContosoInsurance.iOS
             global::Xamarin.Forms.Forms.Init();
 
             Microsoft.WindowsAzure.MobileServices.CurrentPlatform.Init();
-            SQLitePCL.CurrentPlatform.Init();
+            //SQLitePCL.CurrentPlatform.Init();
             //http://motzcod.es/post/150988588867/updating-azure-mobile-sqlitestore-to-30
-            SQLitePCL.Batteries.Init();
+            //SQLitePCL.Batteries.Init();
 
             if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0)) {
                 var settings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Sound |

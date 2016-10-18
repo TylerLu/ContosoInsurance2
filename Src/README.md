@@ -16,14 +16,19 @@ Contoso Insurance is a sample that demonstrates the advantages of using the Azur
   - Queue triggers
 - Azure Cognitive Services - Computer Vision API
 - ARM Templates
+- Notification Hubs
+  - Push Notifications to mobile devices
 
 The sample also demonstrates how to use other technologies including:
 
 - ASP.NET MVC Web Site with Knockout
 - ASP.NET MVC Web API
 - Xamarin Forms Mobile Application
+  - iOS
+  - Android 
 - Azure Application Insights
-- Azure PAAS SQL Databases
+- HockeyApp
+- Azure PaaS SQL Databases
 - Entity Framework
 - Azure Storage Accounts
   - Queues
@@ -234,13 +239,13 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    ![](Images/Deployment/azure-notification-hub.png)
 
-   Click **All Settings**, then click **Notification Services**.
+2. Click **All Settings**, then click **Notification Services**.
 
    ![](Images/Deployment/configure-notification-hub.png)
 
-2. Configure **Google (GCM)**.
+4. Configure **Google (GCM)**.
 
-   For this step, you need [Google account](https://accounts.google.com/SignUp) with a verified email address.
+   For this step, you need a [Google account](https://accounts.google.com/SignUp) with a verified email address.
 
    * Log in to the [Firebase console](https://firebase.google.com/console/). Create a new Firebase project if you don't already have one.
 
@@ -262,7 +267,7 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
 
    - [Register an App ID for your app](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html#//apple_ref/doc/uid/TP40012582-CH30-SW991). Create an explicit App ID (not a wildcard App ID) and for Bundle ID, use the exact Bundle ID that is in your iOS project. It is also crucial that you check the Push Notifications option.
 
-   - Next, [configuring push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6). You may create either a "Development" or "Distribution" SSL certificate.
+   - Next, [configure push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html#//apple_ref/doc/uid/TP40012582-CH26-SW6). You may create either a "Development" or "Distribution" SSL certificate.
 
    - On your Mac, launch **Keychain Access**. Open **Category** > **My Certificates**. Find the SSL certificate to export (that you downloaded earlier) and disclose its contents. Select only the certificate without selecting the private key, and [export it](https://support.apple.com/kb/PH20122?locale=en_US).
 
@@ -335,137 +340,147 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 ## How To: Integrate Hockey App with the Xamarin App for deployment and logging ##
 
 ### Integrate Hockey App with the Xamarin App to iOS ###
-1. Open [Hockeyapp](https://www.hockeyapp.net/ "Hockeyapp") site, if you have not Hockey App developer account, please sign up.
+1. Open the [Hockeyapp](https://www.hockeyapp.net/ "Hockeyapp") site, if you have not already created a Hockey App developer account, please sign up.
 
     ![](Images/Deployment/HockeyApp-SignUp.png)
 
-2. Log in Hockey App using the developer user that you register above, go to [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
+2. Log in to Hockey App using the developer user that you registered above, and go to the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
 
-3. Click **New App** button.
+3. Click the **New App** button.
 
     ![](Images/Deployment/HockeyApp-NewApp.png)
 
-4. Click Create the App **Manually** instead.
+4. Click the create the App **manually** instead link.
 
     ![](Images/Deployment/HockeyApp-ManuallyCreate.png)
  
-5. Type your App information and click **Save** button.
+5. Enter your app information and click the **Save** button.
 
 	![](Images/Deployment/HockeyApp-CreatDetail.png)
 
-6. Copy **App Id** to use later.
+6. Copy the **App Id**, you will use it later.
 	![](Images/Deployment/HockeyApp-CopyAppId.png)
 
-7. Use VS to open **ContosoInsurance-Mobile.sln**, select **ContosoInsurance.iOS** project, paste the **iOS App Id** that you get it above and save file.
+7. Use Visual Studio 2015 to open the **ContosoInsurance-Mobile.sln** Visual Studio Solution.
+
+8.  In the **ContosoInsurance.iOS** project, open the **MainActivity.cs** class and paste the **iOS App Id** that you copied above into the value for the **HOCKEYAPP_APPID** variable.
+
+9.  Save the **MainActivity.cs** file.
 
 	![](Images/Deployment/HockeyApp-PastAppId.png)
 
-8. Build IOS project, and Upload your iOS **.ipa** file to iOS Hockey App that you create above.
-> **Note:** Be sure that tester's iOS UDID has been included in your Apple provision file before build.
+10. Build the iOS project, and upload your iOS **.ipa** file to the iOS Hockey App that you created above.
+
+	> **Note:** Be sure that tester's iOS UDID has been included in your Apple provision file before build.
 
 	 ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
 
-9. Enter the release notes for this build. 
+11. Enter the release notes for the build, then click **Next Step**
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
 
-10. Configure **Status** as following.
+12. Configure the **Status** according to the screen shot below, then click **Next Step**.
 
 	 ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
 
-11. Configure **Notify** as following, click **Send** button.
+13. Configure **Notify** according to the screen shot below, then click **Send**.
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
 
-12. Upload file and configure App status successfully.
+14. The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
 
 	 ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfully.png)
 
-13. Click **Invite User** button to invite test user to test this App.
+15. Click the **Invite User** button to invite a test user to test the App.
 
 	 ![](Images/Deployment/HockeyApp-InviteUser.png)
 
-14. Type tester email and click **Save**.
+14. Enter the tester's email address and click **Save**.
 
 	 ![](Images/Deployment/HockeyApp-InviteUserTest.png)
 
 ### Integrate Hockey App with the Xamarin App to Android ###
-1. Log in Hockey App using the developer user that you register above, go to [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
-2. Click **New App** button.
+1. Log in to Hockey App using the developer user that you registered above, and go to the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard").
+2. Click the **New App** button.
 
     ![](Images/Deployment/HockeyApp-NewApp.png)
 
-3. Click Create the App **Manually** instead.
+3. Click the create the App **manually** instead link.
 
     ![](Images/Deployment/HockeyApp-ManuallyCreate.png)
  
-4. Type your App information and click **Save** button.
+4. Enter your app information and click the **Save** button.
 
 	![](Images/Deployment/HockeyApp-CreatDetailAndroid.png)
 
-5. Copy **App Id** to use later.
+5. Copy the **App Id**, you will use it later.
 
 	![](Images/Deployment/HockeyApp-CopyAppIdAndroid.png)
 
-6. Use VS to open **ContosoInsurance-Mobile.sln**, select **ContosoInsurance.Droid** project, paste the **Android App Id** that you get it above and save file.
+6. Use Visual Studio 2015 to open the **ContosoInsurance-Mobile.sln** Visual Studio Solution.
+
+7.  In the **ContosoInsurance.Droid** project, open the **MainActivity.cs** class and paste the **Android App Id** that you copied above into the value for the **HOCKEYAPP_APPID** variable.
+
+8.  Save the **MainActivity.cs** file.
 
 	![](Images/Deployment/HockeyApp-PastAppIdAndroid.png)
 
-7. Build Android project, and Upload your Android **.apk** file to Android Hockey App that you create above.
+9. Build the Android project, and upload the Android **.apk** file to the Android Hockey App that you created above.
 
     ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
 
-8. Enter the release notes for this build. 
+10. Enter the release notes for the build, then click **Next Step**
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
 
-9. Configure **Status** as following.
+11. Configure the **Status** according to the screen shot below, then click **Next Step**.
 
 	 ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
 
-10. Configure **Notify** as following, click **Send** button.
+12. Configure **Notify** according to the screen shot below, then click **Send**.
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
 
-11. Upload file and configure App status successfully.
+13. The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
 
 	 ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfullyAndroid.png)
 
-13. Click **Invite User** button to invite user to test this App.
+14. Click the **Invite User** button to invite a test user to test the App.
 
 	 ![](Images/Deployment/HockeyApp-InviteUser.png)
 
-14. Type tester email and click **Save**.
+15. Enter the tester's email address and click **Save**.
 
 	 ![](Images/Deployment/HockeyApp-InviteUserTest.png)
 
-### Download Android Hockey App to device and test###
-1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the tester user that invite above.
-2. Open **ContosoInsurance.Droid** Hockey App, and Click **Download**.
+### Download the iOS Hockey App to an iOS device and test it ###
+1. Open the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), and log into Hockey App using the tester user you sent the email to.
+2. Open the **ContosoInsurance.iOS** Hockey App, and Click **Download**.
 
     ![](Images/Deployment/HockeyApp-DownloadOS.png)
 
-3. Copy it to your Android device, and **install** it.
+3. **Install** the app with iTunes.
+
+	> **Note:** Be sure that your device UDID has been included in your Apple provision file.
+
 4. Test.
 
-### Download iOS Hockey App to device and test###
-1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the tester user that invite above.
-2. Open **ContosoInsurance.iOS** Hockey App, and Click **Download**.
+### Download the Android Hockey App to an Android device and test it ###
+1. Open the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), and log into Hockey App using the tester user you sent the email to.
+2. Open the **ContosoInsurance.Droid** Hockey App, and Click **Download**.
 
     ![](Images/Deployment/HockeyApp-DownloadAndroid.png)
 
-3. **Install** it using iTunes.
-> **Note:** Be sure that your device UDID has been included in your Apple provision file.
-
+3. Copy the .apk file to your Android device and install it.
 4. Test.
 
 ### Explore Hockey App Crashes/Events ###
-1. Open [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), log in Hockey App using the developer user that create above.
-2. Open Hockey App, click Crashes/Events tab to find log.
+1. Open the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), and log into Hockey App using the developer user that you created above.
+2. Open the Hockey App you wish to explore and the click **Crashes/Events** tab to see the logs.
 
     ![](Images/Deployment/HockeyApp-events.png)
 
-3. You can explore HockeyApp data in Application Insights, please reference this [link](https://azure.microsoft.com/en-us/documentation/articles/app-insights-hockeyapp-bridge-app/ "Exploring HockeyApp data in Application Insights") to configure Hockey App Bridge Application Insight.
+3. You can explore HockeyApp data in Application Insights!  To do this follow the steps in this [link](https://azure.microsoft.com/en-us/documentation/articles/app-insights-hockeyapp-bridge-app/ "Exploring HockeyApp data in Application Insights") to configure the Hockey App Bridge to Application Insights.
 
     ![](Images/Deployment/HockeyApp-Insight.png)
 
@@ -483,21 +498,21 @@ The sample logs status information and exceptions to Application Insights for ev
 To view the custom events and metrics in Application Insights follow these steps.
 
 1.  Open https://portal.azure.com in a web browser and log in.
-2.  Click the Application Insights link in the left menu.
-       1.Click the contosoinsurance Application Insights application that was created when you deployed all the components.
-       1.Click Search.
+2.  Click the **Application Insights** link in the left menu.
+3.  Click the **contosoinsurance** Application Insights application that was created when you deployed all the components.
+4.	Click **Search**.
 
-       ![](Images/Deployment/App-Insights-Search.png)
+	![](Images/Deployment/App-Insights-Search.png)
 
-       1.Observe all of the Custom Events.
+5.	Observe all of the Custom Events.
 
-       ![](Images/Deployment/App-Insights-Search-Results.png)
+	![](Images/Deployment/App-Insights-Search-Results.png)
 
-       1.Click a Custom Event in the list to see the metrics logged for the event.
+6.	Click a Custom Event in the list to see the metrics logged for the event.
 
-       >**Note:**  You can refer to the Application Insights Logging Matrix in the [Azure Components document](/Azure Components.docx) to see all of the Custom Metrics logged for each Custom Event.  In the example below you can see this custom event was written by the HandleNewClaim Azure Function when it invoked the ClaimAutoApprover Azure Function.
+	>**Note:**  You can refer to the Application Insights Logging Matrix in the [Azure Components document](/Azure Components.docx) to see all of the Custom Metrics logged for each Custom Event.  In the example below you can see this custom event was written by the HandleNewClaim Azure Function when it invoked the ClaimAutoApprover Azure Function.
 
-       ![](Images/Deployment/App-Insights-Custom-Event.png)
+	![](Images/Deployment/App-Insights-Custom-Event.png)
 
 **Track an individual claim**
 
@@ -508,7 +523,7 @@ Each claim has a CorrelationId associated with it.  You can see this in the scre
 
        ![](Images/Deployment/App-Insights-Search.png)
 
-       2.Paste the CorrelationId into the **Search textbox** and observe all the Custom Events associated with the CorrelationId.
+3.	Paste the CorrelationId into the **Search textbox** and observe all the Custom Events associated with the CorrelationId.
 
        >**Note:**  This is an excellent way to debug errors in the system and is also especially helpful to determine how long a given step takes to execute.  This sample typically processes claims from the point where they are submitted in the mobile app to the point where they are ready for manual approval in 15 seconds when running the sample on the most basic App Services service level!
 
@@ -532,17 +547,17 @@ As you can see below, this claim took 22 seconds to process.
 
 ## How To: Wipe all claims ##
 
-After a period of time, there would be lots of claims in the system. You can wipe them by the following steps:
+As you use the demo, many claims will accumulate in the databases and in the blob storage container.  To wipe the claims and reset the demo, perform the the following steps:
 
-1. Open the Web App:
+1. Open the Web App in a web browser and log in.
 
    ![](Images/Deployment/azure-web-app.png)
 
-2. Click the username at the top right of the page:
+2. Click the **username** at the top right of the page:
 
    ![](Images/Deployment/admin-user-info.png)
 
-   1. Click **Wipe Claims**.
+3. Click **Wipe Claims**.
 
    ![](Images/Deployment/admin-wipe-claims.png)
 

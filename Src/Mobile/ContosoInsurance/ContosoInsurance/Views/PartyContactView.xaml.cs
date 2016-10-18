@@ -15,10 +15,10 @@ using ContosoInsurance.ViewModels;
 
 namespace ContosoInsurance.Views
 {
-	public partial class PartyContactViewiOS : ContentPage
+	public partial class PartyContactView : ContentPage
 	{
         private ClaimViewModel claimViewModel;
-        public PartyContactViewiOS (ClaimViewModel cv)
+        public PartyContactView (ClaimViewModel cv)
 		{
             Title = "Contoso Insurance";
             InitializeComponent();
@@ -51,12 +51,12 @@ namespace ContosoInsurance.Views
         {
             var nextTapGestureRecognizer = new TapGestureRecognizer();
             nextTapGestureRecognizer.Tapped += NextButton_Clicked;
-            bottomView.NextImage.GestureRecognizers.Add(nextTapGestureRecognizer);
+            bottomView.NextButton.GestureRecognizers.Add(nextTapGestureRecognizer);
 
-            bottomView.PreviousImage.IsVisible = true;
+            bottomView.PreviousButton.IsVisible = true;
             var backTapGestureRecognizer = new TapGestureRecognizer();
             backTapGestureRecognizer.Tapped += PreviousButton_Clicked;
-            bottomView.PreviousImage.GestureRecognizers.Add(backTapGestureRecognizer);
+            bottomView.PreviousButton.GestureRecognizers.Add(backTapGestureRecognizer);
         }
 
         #region User Common Actions
@@ -75,7 +75,7 @@ namespace ContosoInsurance.Views
                 {
                     await claimViewModel.UpdateClaimPartyMobileAsync(partyPhoneNumber.Text);
                 }
-                var nextPage = new IncidentDetailViewiOS(claimViewModel);
+                var nextPage = new IncidentDetailView(claimViewModel);
                 await Navigation.PushAsync(nextPage, true);
                 NavigationPage.SetHasBackButton(nextPage, false);
             }
@@ -100,7 +100,7 @@ namespace ContosoInsurance.Views
         public async void SettingsBtn_Tapped(object sender, EventArgs e)
         {
             this.menuList.IsVisible = false;
-            var settingsView = new SettingsViewiOS();
+            var settingsView = new SettingsView();
             NavigationPage.SetHasBackButton(settingsView, false);
             await Navigation.PushAsync(settingsView, false);
         }
