@@ -21,7 +21,7 @@ namespace ContosoInsurance.API.Helpers
             string sid = claimsUser.FindFirst(ClaimTypes.NameIdentifier).Value;
 
             // The above assumes WEBSITE_AUTH_HIDE_DEPRECATED_SID is true. Otherwise, use the stable_sid claim:
-             sid +=";" + claimsUser.FindFirst("stable_sid").Value; 
+             //sid +=";" + claimsUser.FindFirst("stable_sid").Value; 
 
             return $"{provider}|{sid}";
         }
