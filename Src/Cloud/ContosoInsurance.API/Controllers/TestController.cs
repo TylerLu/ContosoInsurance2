@@ -16,7 +16,14 @@ namespace ContosoInsurance.API.Controllers
         // GET: api/Test
         public string Get()
         {
-            return GetUserId(User);
+            try
+            {
+                return GetUserId(User);
+            }
+            catch(Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         private string GetUserId(IPrincipal user)
