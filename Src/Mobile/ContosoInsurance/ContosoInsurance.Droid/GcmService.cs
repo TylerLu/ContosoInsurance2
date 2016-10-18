@@ -4,11 +4,13 @@ using Android.Media;
 using Android.Support.V4.App;
 using Android.Util;
 using Gcm.Client;
+
 using Microsoft.WindowsAzure.MobileServices;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using System.Text;
 using ContosoInsurance.Helpers;
 
@@ -41,7 +43,7 @@ namespace ContosoInsurance.Droid
         public GcmService() : base(PushHandlerBroadcastReceiver.SENDER_IDS)
         { }
 
-        public static void RegisterWithMobilePushNotifications()
+        public static async Task RegisterWithMobilePushNotifications()
         {
             MobileServiceClient client = MobileServiceHelper.msInstance.Client;
 
@@ -53,14 +55,13 @@ namespace ContosoInsurance.Droid
                 {
                     try
                     {
+
                         var gcmBody = new JObject {
                             {
-                                "data",
-                                new JObject {
-                                    { "message", "$(Message)" }
-                                }
+                                "message", "$(Message)"
                             }
                         };
+
 
                         var template = new JObject {
                             {

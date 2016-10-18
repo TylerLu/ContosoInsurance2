@@ -9,10 +9,12 @@ namespace ContosoInsurance.API.Helpers
 {
     public static class AuthenticationHelper
     {
-        internal static async Task<string> GetUserIdAsync(HttpRequestMessage request, IPrincipal user)
+        internal static string GetUserId(HttpRequestMessage request, IPrincipal user)
         {
             var principal = user as ClaimsPrincipal;
-            var provider = principal.FindFirst("http://schemas.microsoft.com/identity/claims/identityprovider").Value;
+            var provider = principal.FindFirst("http://schemas.microsoft.com/identity/claims/identityprovider");
+            if (provider == null) return "";
+
             var sid = principal.FindFirst(ClaimTypes.NameIdentifier).Value;
             return $"{provider}:{sid}";
         }
