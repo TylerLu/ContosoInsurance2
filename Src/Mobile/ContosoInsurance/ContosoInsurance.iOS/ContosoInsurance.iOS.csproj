@@ -131,6 +131,8 @@
     <OutputPath>bin\iPhone\iOS\</OutputPath>
     <WarningLevel>4</WarningLevel>
     <Optimize>false</Optimize>
+    <BuildIpa>True</BuildIpa>
+    <IpaIncludeArtwork>False</IpaIncludeArtwork>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Extension\CustomNumberEntry.cs" />

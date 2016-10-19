@@ -27,7 +27,7 @@
       </Label>
       
       <Grid Grid.Row="3" Padding="15,0">
-        <Entry x:Name="settingsURL" Keyboard="Telephone" Placeholder="xxx-xxx-xxxx"
+        <Entry x:Name="settingsURL"
                                   HeightRequest="35" FontSize="Medium"
                                   HorizontalTextAlignment="Center"
                                   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="#555555"/>

@@ -55,14 +55,14 @@ namespace ContosoInsurance.Droid
                 {
                     try
                     {
-
                         var gcmBody = new JObject {
                             {
-                                "message", "$(Message)"
+                                "data",
+                                new JObject {
+                                    { "message", "$(Message)" }
+                                }
                             }
                         };
-
-
                         var template = new JObject {
                             {
                                 "genericMessage",
@@ -114,14 +114,7 @@ namespace ContosoInsurance.Droid
             string message = intent.Extras.GetString("message");
             if (!string.IsNullOrEmpty(message))
             {
-                createNotification("New todo item!", "Todo item: " + message);
-                return;
-            }
-
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
+                createNotification("Notification", message);
                 return;
             }
 

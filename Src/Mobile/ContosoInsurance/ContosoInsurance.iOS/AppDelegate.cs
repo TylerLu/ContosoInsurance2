@@ -69,7 +69,10 @@ namespace ContosoInsurance.iOS
 
                 var apnsBody = new JObject {
                     {
-                        "message", "$(Message)"
+                        "aps",
+                        new JObject {
+                            { "alert", "$(Message)" }
+                        }
                     }
                 };
 
@@ -97,16 +100,18 @@ namespace ContosoInsurance.iOS
 
         public override void DidReceiveRemoteNotification(UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
         {
-            string alert = (userInfo.ObjectForKey(new NSString("message")) as NSString).ToString();
+            NSDictionary aps = userInfo.ObjectForKey(new NSString("aps")) as NSDictionary;
+
+            string alert = string.Empty;
+            if (aps.ContainsKey(new NSString("alert")))
+                alert = (aps[new NSString("alert")] as NSString).ToString();
+
             //show alert
             if (!string.IsNullOrEmpty(alert))
             {
                 UIAlertView avAlert = new UIAlertView("Notification", alert, null, "OK", null);
                 avAlert.Show();
             }
-
-            UIAlertView avAlert1 = new UIAlertView("Notification", "DidReceiveRemoteNotification", null, "OK", null);
-            avAlert1.Show();
         }
 
         public override async void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
