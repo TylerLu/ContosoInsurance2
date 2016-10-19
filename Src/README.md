@@ -262,18 +262,6 @@ The Logic App uses an Office 365 API Connection to send email.  To authorize the
      Copy the **Server key (legacy token)**. 
 
      > **Note**: The **Sender ID** will be used in the Android App.
-     >
-     > ```csharp
-     > namespace ContosoInsurance.Droid
-     > {
-     > 	public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-     > 	{
-     >     	public static string[] SENDER_IDS = new string[] { "705******819" };
-     >     	//...
-     >     }
-     >   	//...
-     > }
-     > ```
 
    * Paste the server key to the **API Key** input box below.
 
