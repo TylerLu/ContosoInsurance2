@@ -125,8 +125,8 @@ namespace ContosoInsurance.Views
             if (claimViewModel.getKindImagesFileCount(ClaimImageTypeModel.IncidentImage) > 0)
             {
                 var nextPage = new IncidentDescription(claimViewModel);
-                await Navigation.PushAsync(nextPage, true);
                 NavigationPage.SetHasBackButton(nextPage, false);
+                await Navigation.PushAsync(nextPage, true);
             }
         }
 

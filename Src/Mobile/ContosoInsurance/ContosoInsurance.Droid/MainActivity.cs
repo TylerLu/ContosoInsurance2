@@ -55,7 +55,7 @@ namespace ContosoInsurance.Droid
                 CrashManager.Register(this, HOCKEYAPP_APPID);
 
                 //Register to with the Update Manager
-                UpdateManager.Register(this, HOCKEYAPP_APPID);
+                //UpdateManager.Register(this, HOCKEYAPP_APPID);
 
                 MetricsManager.Register(Application, HOCKEYAPP_APPID);
                 MetricsManager.EnableUserMetrics();

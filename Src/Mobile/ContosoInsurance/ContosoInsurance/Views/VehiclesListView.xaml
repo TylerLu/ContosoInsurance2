@@ -49,9 +49,21 @@
                             </Grid>
                             <Grid Grid.Row="1">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="1*"/>
-                                    <ColumnDefinition Width="185"/>
-                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition>
+                                        <ColumnDefinition.Width>
+                                            <OnPlatform x:TypeArguments="GridLength" iOS="1*" Android="2*" />
+                                        </ColumnDefinition.Width>
+                                    </ColumnDefinition>
+                                    <ColumnDefinition>
+                                        <ColumnDefinition.Width>
+                                            <OnPlatform x:TypeArguments="GridLength" iOS="185" Android="6*" />
+                                        </ColumnDefinition.Width>
+                                    </ColumnDefinition>
+                                    <ColumnDefinition>
+                                        <ColumnDefinition.Width>
+                                            <OnPlatform x:TypeArguments="GridLength" iOS="1*" Android="2*" />
+                                        </ColumnDefinition.Width>
+                                    </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
                                 <StackLayout x:Name="vehicleListCtrl" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Spacing="20">
                                 </StackLayout>

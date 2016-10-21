@@ -57,6 +57,7 @@ namespace ContosoInsurance.iOS
             {
                 var manager = BITHockeyManager.SharedHockeyManager;
                 manager.Configure(HOCKEYAPP_APPID);
+                manager.DisableUpdateManager = true;
                 manager.StartManager();
                 manager.Authenticator.AuthenticateInstallation(); // This line is obsolete in crash only builds
             }
