@@ -54,8 +54,12 @@ namespace ContosoInsurance.Views
                     new Binding { Source = BindingContext, Path = "Images", Converter = new IncidentIconSourceConvert(), Mode = BindingMode.OneWay, ConverterParameter = i });
                 this.incidentIconsCtrl.Children.Add(incidentIcon, i-1, 0);
             }
+
             this.selectImageSource.SetBinding(Image.SourceProperty,
                     new Binding { Source = BindingContext, Path = "Images", Converter = new IncidentSelectImageSourceConvert(), Mode = BindingMode.OneWay });
+
+            //this.selectImageSource.SetBinding(Image.AspectProperty,
+            //        new Binding { Source = BindingContext, Path = "Images", Converter = new IncidentSelectImageAspectConvert(), Mode = BindingMode.OneWay });
         }
 
         public async void IncidentIcon_Tapped(object sender, EventArgs e)

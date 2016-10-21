@@ -371,39 +371,33 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 
 7. Use Visual Studio 2015 to open the **ContosoInsurance-Mobile.sln** Visual Studio Solution.
 
-8. In the **ContosoInsurance.iOS** project, open the **MainActivity.cs** class and paste the **iOS App Id** that you copied above into the value for the **HOCKEYAPP_APPID** variable.
-
-9. Save the **MainActivity.cs** file.
-
-   ![](Images/Deployment/HockeyApp-PastAppId.png)
-
-10. Build the iOS project, and upload your iOS **.ipa** file to the iOS Hockey App that you created above.
+8. Build the iOS project, and upload your iOS **.ipa** file to the iOS Hockey App that you created above.
 
    > **Note:** Be sure that tester's iOS UDID has been included in your Apple provision file before build.
 
     ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
 
-11. Enter the release notes for the build, then click **Next Step**
+9. Enter the release notes for the build, then click **Next Step**
 
    ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
 
-12.  Configure the **Status** according to the screen shot below, then click **Next Step**.
+10.  Configure the **Status** according to the screen shot below, then click **Next Step**.
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
 
-13.  Configure **Notify** according to the screen shot below, then click **Send**.
+11.  Configure **Notify** according to the screen shot below, then click **Send**.
 
    ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
 
-14.  The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
+12.  The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
 
     ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfully.png)
 
-15.  Click the **Invite User** button to invite a test user to test the App.
+13.  Click the **Invite User** button to invite a test user to test the App.
 
     ![](Images/Deployment/HockeyApp-InviteUser.png)
 
-16.  Enter the tester's email address and click **Save**.
+14.  Enter the tester's email address and click **Save**.
 
     ![](Images/Deployment/HockeyApp-InviteUserTest.png)
 
@@ -427,37 +421,31 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 
 6. Use Visual Studio 2015 to open the **ContosoInsurance-Mobile.sln** Visual Studio Solution.
 
-7. In the **ContosoInsurance.Droid** project, open the **MainActivity.cs** class and paste the **Android App Id** that you copied above into the value for the **HOCKEYAPP_APPID** variable.
-
-8. Save the **MainActivity.cs** file.
-
-   ![](Images/Deployment/HockeyApp-PastAppIdAndroid.png)
-
-9. Build the Android project, and upload the Android **.apk** file to the Android Hockey App that you created above.
+7. Build the Android project, and upload the Android **.apk** file to the Android Hockey App that you created above.
 
     ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
 
-10. Enter the release notes for the build, then click **Next Step**
+8. Enter the release notes for the build, then click **Next Step**
 
    ![](Images/Deployment/HockeyApp-AddNewAppStep1.png)
 
-11.  Configure the **Status** according to the screen shot below, then click **Next Step**.
+9. Configure the **Status** according to the screen shot below, then click **Next Step**.
 
     ![](Images/Deployment/HockeyApp-AddNewAppStep2.png)
 
-12.  Configure **Notify** according to the screen shot below, then click **Send**.
+10. Configure **Notify** according to the screen shot below, then click **Send**.
 
    ![](Images/Deployment/HockeyApp-AddNewAppStep3.png)
 
-13.  The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
+11. The confirmation screen will look like this after you have uploaded the file and configured the App successfully.
 
     ![](Images/Deployment/HockeyApp-AddNewAppFileSuccessfullyAndroid.png)
 
-14.  Click the **Invite User** button to invite a test user to test the App.
+12. Click the **Invite User** button to invite a test user to test the App.
 
     ![](Images/Deployment/HockeyApp-InviteUser.png)
 
-15.  Enter the tester's email address and click **Save**.
+13.  Enter the tester's email address and click **Save**.
 
     ![](Images/Deployment/HockeyApp-InviteUserTest.png)
 
@@ -471,7 +459,15 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 
    > **Note:** Be sure that your device UDID has been included in your Apple provision file.
 
-4. Test.
+4. Open the **Settings** page and enter the iOS App Id that you copied above.
+
+	![](Images/Deployment/HockeyApp-PastAppId.png)
+
+5. Touch the **Save** button, and **restart** the app. 
+	
+   > **Note:** You must restart the App to enable the new Hockey App Id after saving the configuration value.
+
+6. Test.
 
 ### Download the Android Hockey App to an Android device and test it ###
 1. Open the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), and log into Hockey App using the tester user you sent the email to.
@@ -480,7 +476,16 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
     ![](Images/Deployment/HockeyApp-DownloadAndroid.png)
 
 3. Copy the .apk file to your Android device and install it.
-4. Test.
+
+4. Open the **Settings** page and enter the Android App Id that you copied above.
+
+	![](Images/Deployment/HockeyApp-PastAppIdAndroid.png)
+
+5. Touch the **Save** button, and **restart** the app. 
+	
+   > **Note:** You must restart the App to enable the new Hockey App Id after saving the configuration value.
+
+6. Test.
 
 ### Explore Hockey App Crashes/Events ###
 1. Open the [Hockey App dashboard](https://rink.hockeyapp.net/manage/dashboard "Hockey App dashboard"), and log into Hockey App using the developer user that you created above.
