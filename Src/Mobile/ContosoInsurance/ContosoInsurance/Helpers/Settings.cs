@@ -1,4 +1,5 @@
-﻿using Plugin.Settings;
+﻿using System;
+using Plugin.Settings;
 using Plugin.Settings.Abstractions;
 
 namespace ContosoInsurance
@@ -36,13 +37,23 @@ namespace ContosoInsurance
 
         public string MobileGcmSenderId
         {
-            get { return AppSettings.GetValueOrDefault<string>(HockeyAppIdKey, DefaultGcmSenderId); }
+            get { return AppSettings.GetValueOrDefault<string>(GcmSenderKey, DefaultGcmSenderId); }
 
-            set { AppSettings.AddOrUpdateValue<string>(HockeyAppIdKey, value); }
+            set { AppSettings.AddOrUpdateValue<string>(GcmSenderKey, value); }
         }
         private const string GcmSenderKey = nameof(GcmSenderKey);
-        public const string DefaultGcmSenderId = "705339177819";
+        public const string DefaultGcmSenderId = "910324517099";
 
+        public string MobileLocalDbPrefix
+        {
+            get {
+                return AppSettings.GetValueOrDefault<string>(MobileLocalDbPrefixKey, LocalSqlDbFilename + Guid.NewGuid().ToString("N").Replace('-','.'));
+            }
+
+            set { AppSettings.AddOrUpdateValue<string>(MobileLocalDbPrefixKey, LocalSqlDbFilename + value.Replace('-', '.')); }
+        }
+        private const string MobileLocalDbPrefixKey = nameof(MobileLocalDbPrefixKey);
+        private const string LocalSqlDbFilename = "localDb.sqlite.";
 
         private static ISettings AppSettings
         {

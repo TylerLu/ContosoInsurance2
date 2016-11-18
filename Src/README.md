@@ -151,8 +151,8 @@ Download and install the following tools to run, build and/or develop this appli
 
    > ![](Images/Deployment/azure-components.png)
 
-**Update the Contoso_ClaimAutoApproverUrl App Setting in the Function App**
-​	
+**Update the Contoso_ClaimAutoApproverUrl App Setting in the Function App**	
+
 1. In the list of components in the Resource Group the ARM template created (pictured above), click the **ContosoInsuranceClaimAutoApprover Logic App**.
 
    ![](Images/Deployment/azure-claim-auto-approver.png)
@@ -321,9 +321,7 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
   >```
   > If you change this app setting vale after you deploy the web api app and you deploy again with the ARM template then you will have to manually change it again.
 
-## How To: Run the mobile client app for local execution and debugging on the iOS simulator##
-
->**Note:** Currently, only the iOS version of the mobile app is fully implemented.  The Android version of the app is a prototype and is not fully implemented. 
+## How To: Run the iOS mobile client app for local execution and debugging on the iOS simulator##
 
 1. Use Visual Studio 2015 to open the **src/Cloud/ContosoInsurance-Mobile.sln** Visual Studio Solution file.
    1.Set up your Mac computer to act as a remote build machine.
@@ -338,7 +336,7 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 3. Press **F5**.
 4. Observe the iOS Simulator start on the Mac Agent and load the Contoso Insurance mobile app.
 
-> **Note:** If you do not set a location for the mobile ap it will fail with an exception.
+> **Note:** If you do not set a location for the mobile app it will fail with an exception.
 
 1.  In the Simulator menu, click **Debug**, **Location**, **Custom Location**.
 
@@ -346,6 +344,16 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 
     1.Enter a **latitude** and **longitude**.
     2.Click **OK**.
+
+## How To: Run the Android mobile client app for local execution and debugging on the Android simulator##
+
+1. Use Visual Studio 2015 to open the **src/Cloud/ContosoInsurance-Mobile.sln** Visual Studio Solution file.
+   
+2. Configure the debugging target device according to the screenshot below.
+
+   ![](Images/Deployment/VS-Android-Deployment-Settings.png)
+3. Press **F5**.
+4. Observe the Android Simulator start and load the Contoso Insurance mobile app.
 
 ## How To: Integrate Hockey App with the Xamarin App for deployment and logging ##
 
@@ -425,7 +433,7 @@ The customer user accounts used to sign into the mobile app are Microsoft Accoun
 
 7. Build the Android project, and upload the Android **.apk** file to the Android Hockey App that you created above.
 
-    ![](Images/Deployment/HockeyApp-AddNewAppFile.png)
+    ![](Images/Deployment/HockeyApp-AddNewAppFileAndroid.png)
 
 8. Enter the release notes for the build, then click **Next Step**
 
@@ -576,6 +584,75 @@ As you use the demo, many claims will accumulate in the databases and in the blo
 
    ![](Images/Deployment/admin-wipe-claims.png)
 
+## How To: Test Notifications on the Android simulator/device ##
+
+> **Note:** Make sure [Google Play Service](https://play.google.com/store/apps/details?id=com.google.android.gms&hl=en "Google Play Service") has been installed on your Android simulator/device before testing notifications.
+
+1. Run the **ContosoInsurance.Droid** project on the Android simulator.
+2. Step-by-Step, submit a claim successfully.
+
+	![](Images/Deployment/Android-submit-a-claim.png)
+
+3. Go to the Contoso Insurance web site.
+4. Search the claim that you just submitted above and go to the claim detail page.
+5. **Approve** or **Reject** the claim.
+
+	![](Images/Deployment/approve-a-claim.png)	
+
+6. The Android simulator will display the notification on the status bar.
+
+	![](Images/Deployment/android-display-notification.png)	
+
+## How To: Test Notifications on iOS devices ##
+
+> **Note:** You must use a physical iOS device test notifications because the iOS simulator does not support push notifications.
+
+1. Run the **ContosoInsurance.iOS** app on an iOS device.
+2. Step-by-Step, submit a claim successfully.
+
+	![](Images/Deployment/ios-submit-a-claim.png)
+
+3. Go to the Contoso Insurance web site.
+4. Search the claim that you just submitted above and go to the claim detail page.
+5. **Approve** or **Reject** the claim.
+
+	![](Images/Deployment/approve-a-claim.png)	
+
+6. The iOS device will display the notification.
+
+	![](Images/Deployment/ios-display-notification.png)	
+
+## How To: Take an new Picture on the Android simulator ##
+
+If you want to print out the demo images for license plates, insurance cards, and driver's licenses and use the simulator to take a picture of them, here's how to do it.
+
+>**Note:** Here, we use the **5" KitKat(4.4) XXHDPI Phone (Android 4.4 - API19)** simulator to demonstrate these steps.
+
+
+>**Note:** You must configure your simulator to use a web cam attached to your computer to take a picture.  See these [instructions](https://developer.android.com/studio/run/managing-avds.html) to learn how to do this.
+
+1. Open the ContosoInsurance App in the Android simulator.
+
+2. Click the **Camera** button.
+
+	![](Images/Deployment/Android-camerabuttonClick.png)
+
+3. Click the **More** button on the bottom bar.
+
+	![](Images/Deployment/Android-galleryClickMenu.png)
+
+4. Click the **Capture picture** button.
+
+	![](Images/Deployment/Android-galleryClickCapturePicture.png)
+
+5. Take a new picture.
+
+6. Select the new picture you just took.
+
+	>**Note:** In this example there was no web cam attached to the Android Simulator, that's why you see the checkerboard image.  When you have a web cam attached to your simulator you will see the image of what the web cam is looking at.
+
+	![](Images/Deployment/Android-gallerySelectPicture.png)
+ 
 ## Contributors
 | Roles                                    | Author(s)                                |
 | ---------------------------------------- | ---------------------------------------- |
